@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New year</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        
+        @keyframes mymove {
+        0% {top:0px}
+        25%{transform: scale(50);}
+        50% {transform: rotate(180deg);}
+        
+        }
+        @font-face {
+        font-family: myFirstFont;
+        src: url(sansation_light.woff);
+        }
+        .glow {
+        font-size: 40px;
+        color: #fff;
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate;
+        
+        
+        }
+
+        @keyframes glow {
+        from {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+        }
+        
+        to {
+            text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+        }
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="black" style="width: 100vw; height: 100vh;" id="div">
+         <h4 style="margin:0 ;opacity: 0; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; position: absolute; left: 35%; top:30%" class="white-text glow" id="rem1">Happy</h4>  
+         <h4 style="margin:0 ;opacity: 0; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; position: absolute;left:30%; top:43%"  class="white-text glow" id="rem2">New Year</h4>  
+         <h4 style="margin:0 ;opacity: 0; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; position: absolute;left:50%; top:50%;color:#e60073"  id="rem3">VJ</h4>  
+    </div>
+
+<script>
+    var i=0;
+    var div=document.getElementById('div')
+    var rem1=document.getElementById('rem1')
+    var rem2=document.getElementById('rem2')
+    var rem3=document.getElementById('rem3')
+    div.addEventListener('click',()=>{
+        if(i==0)
+        {
+            div.style.backgroundImage="url('icegif-941.gif')"
+            i++;
+        }
+            
+
+        setTimeout(() => {
+            div.style.backgroundImage="none"
+            rem1.style.opacity="1";
+            //rem1.style.animation="rtol 2s"
+        
+                rem2.style.opacity="1";
+               // rem2.style.animation="ftod 2s" 
+                setTimeout(() => {
+                    rem3.style.opacity="1";
+                    rem3.style.animation="mymove 3s"  
+                    setTimeout(() => {
+                        rem3.style.opacity="0";
+                        rem1.style.opacity="0";
+                        rem2.style.opacity="0";
+                        rem3.style.animation="none";
+                        div.style.backgroundImage="url('icegif-941.gif')"
+                        setTimeout(() => {
+                            div.style.backgroundImage="none"
+                        }, 1000);
+                        i=0;
+
+                    }, 3000); 
+                }, 1000);
+                
+             
+            
+        }, 1000);
+        
+        
+    })
+</script>
+</body></html>
